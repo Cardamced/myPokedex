@@ -1,28 +1,39 @@
-const pokemonList = [
-    {
-        name: "bulbasaur",
-        imgSrc:
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-    },
-    {
-        name: "mew",
-    },
-];console.log(pokemonList[1].imgSrc)
+
+// function PokemonCard(props) {
+//     console.log(props);
+//     const { pokemon } = props;
+//     return (
+//         <>
+//             <figure>
+//                 {pokemon.imgSrc === "" || pokemon.imgSrc === undefined ? <p>???</p> : <img src={pokemon.imgSrc} />}
+
+//                 <figcaption>{Pokemon.name}</figcaption>
+//             </figure>
+//         </>
+//     );
+// }
 
 
-function PokemonCard() {
-    const pokemon =
-        pokemonList[0];
+// export default PokemonCard;
+
+
+function PokemonCard(props) {
+    console.log(props); // Affiche les propriétés reçues dans la console
+    const { pokemon } = props; // déstructure la prop pokemon
+  
     return (
-        <>
-            <figure>
-                {pokemon.imgSrc === "" || pokemon.imgSrc === undefined ? <p>???</p> : <img src={pokemon.imgSrc} />}
-
-                <figcaption>{pokemon.name}</figcaption>
-            </figure>
-        </>
+      <figure>
+        {/* Affiche l'image si elle est disponible (et pas undefined ?) */}
+        {pokemon.imgSrc ? (
+          <img src={pokemon.imgSrc} alt={pokemon.name} />
+        ) : (
+          <p>???</p>
+        )}
+  
+        {/* Affiche le nom du Pokémon via la prop */}
+        <figcaption>{pokemon.name}</figcaption>
+      </figure>
     );
-}
-
-
-export default PokemonCard;
+  }
+  
+  export default PokemonCard;
