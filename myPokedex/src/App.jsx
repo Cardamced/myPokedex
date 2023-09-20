@@ -1,4 +1,8 @@
+import './App.css';
+import MyTitle from './Components/MyTitle';
 import PokemonCard from "./Components/PokemonCard"
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   const pokemonList = [
@@ -16,6 +20,7 @@ function App() {
   const pokemonToDisplay = pokemonList[0];
   return (
     <div>
+      <MyTitle/>
       <PokemonCard pokemon={pokemonToDisplay} />
     </div>
   )
