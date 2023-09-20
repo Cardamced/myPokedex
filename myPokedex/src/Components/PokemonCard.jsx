@@ -1,39 +1,23 @@
-
-// function PokemonCard(props) {
-//     console.log(props);
-//     const { pokemon } = props;
-//     return (
-//         <>
-//             <figure>
-//                 {pokemon.imgSrc === "" || pokemon.imgSrc === undefined ? <p>???</p> : <img src={pokemon.imgSrc} />}
-
-//                 <figcaption>{Pokemon.name}</figcaption>
-//             </figure>
-//         </>
-//     );
-// }
-
-
-// export default PokemonCard;
+import PropTypes from "prop-types";
 
 
 function PokemonCard(props) {
     console.log(props); // Affiche les propriétés reçues dans la console
     const { pokemon } = props; // déstructure la prop pokemon
-  
+    console.log(typeof pokemon.name);
     return (
       <figure>
         {/* Affiche l'image si elle est disponible (et pas undefined ?) */}
-        {pokemon.imgSrc ? (
-          <img src={pokemon.imgSrc} alt={pokemon.name} />
-        ) : (
-          <p>???</p>
-        )}
-  
+        {pokemon.imgSrc === "" || pokemon.imgSrc === undefined ? <p>???</p> : <img src={pokemon.imgSrc} />}
         {/* Affiche le nom du Pokémon via la prop */}
         <figcaption>{pokemon.name}</figcaption>
       </figure>
     );
-  }
+    
+}
+PokemonCard.propTypes = {
+    name: PropTypes.string.isRequired,
+    imgSrc: PropTypes.string.isRequired,
+}
   
   export default PokemonCard;
