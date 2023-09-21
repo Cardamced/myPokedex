@@ -1,6 +1,16 @@
 import PropTypes from 'prop-types';
+import { useEffect } from 'react';
 
-function NavBar({ previousPokemon, nextPokemon }) {
+function NavBar({ previousPokemon, nextPokemon, pokemonIndex }) {
+
+    useEffect(
+        () => {
+            if ( pokemonIndex ===  3) {
+                alert("Pika Pikachu !");
+            }
+        },
+        [pokemonIndex]
+    );
 
     return (
         <>
@@ -20,6 +30,8 @@ NavBar.propTypes = {
     `isRequired`). */
     nextPokemon: PropTypes.func.isRequired,
     previousPokemon: PropTypes.func.isRequired,
+    pokemonIndex: PropTypes.number.isRequired,
+
 };
 
 

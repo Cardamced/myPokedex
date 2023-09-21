@@ -3,7 +3,7 @@ import MyTitle from './Components/MyTitle';
 import NavBar from './Components/NavBar';
 import PokemonCard from "./Components/PokemonCard"
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const pokemonList = [
   {
@@ -31,6 +31,7 @@ const pokemonList = [
   },
 ];
 
+
 function App() {
   /* `const [pokemonIndex, setPokemonIndex] = useState(0);` utilise le hook `useState` de React pour
   créer une variable d'état appelée `pokemonIndex` et une fonction de définition correspondante
@@ -53,6 +54,13 @@ function App() {
   `pokemonList[pokemonIndex]` à la variable `pokemonToDisplay`. */
   const pokemonToDisplay = pokemonList[pokemonIndex];
 
+  useEffect(
+    () => {
+      alert("Hello pokemon trainer !");
+    },
+    []
+  );
+
   return (
     <>
       <div>
@@ -61,6 +69,7 @@ function App() {
         <NavBar
           nextPokemon={nextPokemon}
           previousPokemon={previousPokemon}
+          pokemonIndex={pokemonIndex}
         />
       </div >
     </>
