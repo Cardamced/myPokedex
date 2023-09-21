@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-function PokemonCard({pokemon}) {
+function PokemonCard({ pokemon }) {
     console.log(pokemon); // Affiche les propriétés reçues dans la console
 
     return (
