@@ -1,5 +1,6 @@
 import './App.css';
 import MyTitle from './Components/MyTitle';
+import NavBar from './Components/NavBar';
 import PokemonCard from "./Components/PokemonCard"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
@@ -37,7 +38,7 @@ function App() {
   const [pokemonIndex, setPokemonIndex] = useState(0);
 
   const nextPokemon = () => {
-    if (pokemonIndex < pokemonList.length -1) {
+    if (pokemonIndex < pokemonList.length - 1) {
       setPokemonIndex(pokemonIndex + 1);
     }
   }
@@ -56,13 +57,12 @@ function App() {
     <>
       <div>
         <MyTitle />
-        </* `PokemonCard pokemon={pokemonToDisplay}` transmet la valeur de `pokemonToDisplay` en tant
-        qu'accessoire appelé `pokemon` au composant `PokemonCard`. Cela permet au composant
-        `PokemonCard` d'accéder et d'utiliser les données du Pokémon actuellement affiché. */
-        PokemonCard pokemon={pokemonToDisplay} />
-        <button onClick={previousPokemon}>Précédent</button>
-        <button onClick={nextPokemon}>Suivant</button>
-      </div>
+        <PokemonCard pokemon={pokemonToDisplay} />
+        <NavBar
+          nextPokemon={nextPokemon}
+          previousPokemon={previousPokemon}
+        />
+      </div >
     </>
   );
 }
