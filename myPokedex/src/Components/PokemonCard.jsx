@@ -1,7 +1,16 @@
 import PropTypes from "prop-types";
+import { useEffect } from 'react';
 
 function PokemonCard({ pokemon }) {
     console.log(pokemon); // Affiche les propriétés reçues dans la console
+
+    useEffect(() => {
+        if (pokemon.name === 'Pikachu') {
+            setTimeout(() => {
+                alert("Pika Pikachu !");
+            }, 500);
+        }
+    }, [pokemon.name]);
 
     return (
         <figure>
